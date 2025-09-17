@@ -12,12 +12,13 @@ fn celsius_to_fahrenheit(c: f64) -> f64{
 
 fn main() {
     println!("Assignment 1");
-    println!("Problem 1: Temperature Converter:");
+    println!("Problem 1. Temperature Converter:");
     let mut temp: f64 = 35.0;
-    println!("{:.4} C",fahrenheit_to_celsius(temp));
+    println!("{:.3} C",fahrenheit_to_celsius(temp));
     for i in (temp as i32 + 1)..(temp as i32 + 6){
-        println!("{:.4} C",fahrenheit_to_celsius(i as f64))
+        println!("{:.3} C",fahrenheit_to_celsius(i as f64))
     }
-
+    println!("Problem 2. Number Analyzer:");
+    
 
 }
