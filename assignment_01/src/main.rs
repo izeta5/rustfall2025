@@ -19,8 +19,16 @@ fn is_even(n: i32) -> bool{
     }
 }
 
-fn check_guess(guess:i32, secret: i32){
-    
+fn check_guess(guess:i32, secret: i32) -> i32{
+    if guess == secret{
+        return 0
+    }
+    else if guess > secret{
+        return 1
+    }
+    else{
+        return -1
+    }
 }
 
 fn main() {
@@ -69,7 +77,24 @@ fn main() {
 
     println!("\nProblem 3. Guessing Game:\n");
     let mut secret_num:i32 = 33;
-
+    let mut guess_count:i32 = 0;
+    let guesses: [i32;5] = [7,50,25,35,33]; // Wasn't sure what he meant, did an array of guesses to simulate
+    for i in 0..guesses.len(){
+        if (check_guess(guesses[i],secret_num) == 0) {
+            guess_count += 1;
+            println!("You guessed it ({})",guesses[i]);
+            break
+        }
+        else if (check_guess(guesses[i],secret_num) == 1){
+            guess_count += 1;
+            println!("Too high ({})",guesses[i])
+        }
+        else{
+            guess_count += 1;
+            println!("Too low! ({})",guesses[i])
+        }
+    }
+    println!("\nThat took {} guesses.",guess_count)
 }
 
 //PUT EACH ASSIGNMENT IN A FUNCTION. HAVE MAIN ONLY CALLING 3 FUNCTIONS THATS IT!
