@@ -1,15 +1,15 @@
 const FREEZE: f64 = 32.0;
-
+// Converts F -> C
 fn fahrenheit_to_celsius(f: f64) -> f64 {
     let celsius: f64 = (f - FREEZE) / 1.8;
     return celsius
 }
-
+// Converts C -> F
 fn celsius_to_fahrenheit(c: f64) -> f64 {
     let farhenheit: f64 = 1.8 * c + FREEZE;
     return farhenheit
 }
-
+// Checks if num is even including 0
 fn is_even(n: i32) -> bool {
     if (n % 2 == 0) || (n == 0) {
         return true
@@ -18,8 +18,8 @@ fn is_even(n: i32) -> bool {
         return false
     }
 }
-
-fn check_guess(guess:i32, secret: i32) -> i32 {
+// Checks if guess == secret num
+fn check_guess(guess: i32, secret: i32) -> i32 {
     if guess == secret {
         return 0
     }
@@ -65,7 +65,7 @@ fn problem_2() {
         }
     }
     let mut sum:i32 = 0;
-    let mut big:i32 = nums[0];
+    let mut big:i32 = nums[0]; // Do I have to do a third loop?
     let mut index = 0;
     while index < nums.len() {
         if nums[index] > big {
@@ -83,20 +83,20 @@ fn problem_3() {
     println!("\nProblem 3. Guessing Game:\n");
     let mut secret_num:i32 = 33;
     let mut guess_count:i32 = 0;
-    let guesses: [i32;5] = [7,50,25,35,33]; // simulate guesses
+    let guesses: [i32;5] = [7,50,25,35,33]; // simulate user guesses
     for i in 0..guesses.len() {
         if (check_guess(guesses[i],secret_num) == 0) {
             guess_count += 1;
-            println!("You guessed it ({})",guesses[i]);
+            println!("You guessed it! The secret number was: {}",guesses[i]);
             break
         }
         else if (check_guess(guesses[i],secret_num) == 1) {
             guess_count += 1;
-            println!("Too high ({})",guesses[i])
+            println!("{} was too high!",guesses[i])
         }
         else {
             guess_count += 1;
-            println!("Too low! ({})",guesses[i])
+            println!("{} was too low!",guesses[i])
         }
     }
     println!("\nThat took {} guesses.",guess_count)
